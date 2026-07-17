@@ -4,7 +4,7 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.116-green)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED)
 
 > Enterprise-grade Anti-Money Laundering (AML) compliance platform for NBFCs, Banks, and BFSI organizations.
@@ -200,7 +200,7 @@ Historical customer intelligence overrides risk scores.
                             |
           +-----------------+-----------------+
           |                                   |
-   PostgreSQL 17                    Redis + Celery
+  PostgreSQL 16                 Redis + Celery
  Application Database            Background Workers
 ```
 
@@ -234,7 +234,7 @@ Historical customer intelligence overrides risk scores.
 | Styling | Tailwind CSS v4 |
 | Charts | Recharts |
 | Backend | FastAPI 0.116, Python 3.12 |
-| Database | PostgreSQL 17, SQLAlchemy 2.0 |
+| Database | PostgreSQL 1, SQLAlchemy 2.0 |
 | Authentication | JWT, RBAC |
 | Background Jobs | Celery, Redis |
 | Matching Engine | RapidFuzz |
@@ -252,7 +252,7 @@ Historical customer intelligence overrides risk scores.
 
 - Python 3.12+
 - Node.js 24+
-- PostgreSQL 17
+- PostgreSQL 16
 - Redis
 - Docker (Optional)
 
@@ -261,9 +261,9 @@ Historical customer intelligence overrides risk scores.
 ## Backend Setup
 
 ```bash
-git clone https://github.com/yourusername/vigil.git
+git clone https://github.com/stargirlg/vigil-screening.git
 
-cd vigil
+cd vigil-screening
 
 python -m venv venv
 
@@ -397,7 +397,7 @@ vigil/
 
 # Future Roadmap
 
-- [ ] GitHub Actions CI/CD
+- [x] GitHub Actions CI
 - [ ] Kubernetes Deployment
 - [ ] Prometheus & Grafana Monitoring
 - [ ] Email Notifications
@@ -410,7 +410,7 @@ vigil/
 
 # License
 
-This project is intended for educational and portfolio purposes.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ---
 
