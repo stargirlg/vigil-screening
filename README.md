@@ -234,7 +234,7 @@ Historical customer intelligence overrides risk scores.
 | Styling | Tailwind CSS v4 |
 | Charts | Recharts |
 | Backend | FastAPI 0.116, Python 3.12 |
-| Database | PostgreSQL 1, SQLAlchemy 2.0 |
+| Database | PostgreSQL 16, SQLAlchemy 2.0 |
 | Authentication | JWT, RBAC |
 | Background Jobs | Celery, Redis |
 | Matching Engine | RapidFuzz |
