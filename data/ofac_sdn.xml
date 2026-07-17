@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VIGIL Sample OFAC SDN Data — For development/testing only -->
+<!-- Real OFAC data: https://sanctionslistservice.ofac.treas.gov -->
+<sdnList>
+  <publshInformation>
+    <Publish_Date>07/01/2026</Publish_Date>
+    <Record_Count>5</Record_Count>
+  </publshInformation>
+  <sdnEntry>
+    <uid>1001</uid>
+    <lastName>Ita</lastName>
+    <firstName>naru</firstName>
+    <sdnType>Individual</sdnType>
+    <programList><program>SDGT</program></programList>
+    <akaList>
+      <aka><uid>1</uid><type>a.k.a.</type><lastName>IBRAHIM KASKAR</lastName><firstName>DAWOOD</firstName></aka>
+    </akaList>
+    <nationalityList><nationality><uid>1</uid><country>Pakistan</country></nationality></nationalityList>
+    <dateOfBirthList><dateOfBirthItem><uid>1</uid><dateOfBirth>26 Dec 1955</dateOfBirth></dateOfBirthItem></dateOfBirthList>
+  </sdnEntry>
+  <sdnEntry>
+    <uid>1002</uid>
+    <lastName>SAYU</lastName>
+    <firstName>HKM</firstName>
+    <sdnType>Individual</sdnType>
+    <programList><program>SDGT</program></programList>
+    <nationalityList><nationality><uid>1</uid><country>Pakistan</country></nationality></nationalityList>
+  </sdnEntry>
+</sdnList>

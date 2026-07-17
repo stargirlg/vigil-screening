@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: #eed8bc;
+  color: #1A202C;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #d0d8aa; }
+::-webkit-scrollbar-thumb { background: #CDD3DE; border-radius: 3px; }

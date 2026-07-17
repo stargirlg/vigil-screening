@@ -1,0 +1,11 @@
+full_name,dob,pan,aadhaar,passport,nationality,occupation,email,phone
+John Smith,1980-05-15,ABCDE1234F,1234-5678-9012,,Indian,Software Engineer,john@test.com,9876543210
+Raza Khan,1955-12-26,,,Z1234567,Pakistani,Arms Dealer,raza@test.com,9999999999
+Mohammad Tariq,1968-07-15,XYZAB9876G,9876-5432-1098,,Indian,Businessman,tariq@test.com,8888888888
+Priya Sharma,1990-03-22,PQRST5678H,5678-1234-5678,,Indian,Teacher,priya@test.com,7777777777
+Ali Hassan,1972-08-19,,,PK123456,Pakistani,Hawala Dealer,ali@test.com,6666666666
+Rahul Verma,1985-11-30,LMNOP4321J,4321-8765-4321,,Indian,Doctor,rahul@test.com,5555555555
+Abdul Karim,1972-04-18,,,PK987654,Pakistani,Arms Trader,karim@test.com,4444444444
+Sneha Patel,1995-08-10,GHIJK7654K,7654-3210-9876,,Indian,Student,sneha@test.com,3333333333
+Wang Fang,1984-01-08,,,CN654321,Chinese,Money Changer,wang@test.com,2222222222
+Amit Singh,1988-06-25,UVWXY2345L,2345-6789-0123,,Indian,Accountant,amit@test.com,1111111111
