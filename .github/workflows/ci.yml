@@ -2,32 +2,13 @@ name: VIGIL CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [ main, develop ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    env:
-      DATABASE_URL: postgresql://vigil_user:vigil_pass@localhost:5432/vigil_db
-      SECRET_KEY: test-secret-key-minimum-32-characters-long
-
-    services:
-      postgres:
-        image: postgres:16
-        env:
-          POSTGRES_USER: vigil_user
-          POSTGRES_PASSWORD: vigil_pass
-          POSTGRES_DB: vigil_db
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
 
     steps:
       - uses: actions/checkout@v4
@@ -35,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -43,11 +24,12 @@ jobs:
       - name: Create .env
         run: cp .env.example .env
 
-      - name: Initialize database
-        run: python -m app.db.init_db
-
       - name: Compile check
         run: python -m compileall app
 
       - name: Run tests
         run: pytest tests/ -v
+        env:
+          DATABASE_URL: sqlite:///./test.db
+          SECRET_KEY: test-secret-key-minimum-32-characters-long
+          ACCESS_TOKEN_EXPIRE_MINUTES: 480
