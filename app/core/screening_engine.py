@@ -147,7 +147,7 @@ def screen_customer(customer: Customer, db: Session) -> ScreeningResult:
     # ── Param 8 — Watchlist (risk override) ───────────────────────────
     watchlist_result = check_watchlist(
         db=db,
-        customer_id=str(customer.id)
+        customer_id=(customer.id)
     )
 
     # ── Aggregate base score ───────────────────────────────────────────

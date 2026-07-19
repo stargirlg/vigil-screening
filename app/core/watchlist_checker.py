@@ -6,6 +6,7 @@ State-based scoring, not linear +points.
 from sqlalchemy.orm import Session
 from app.models.watchlist import WatchlistEntry, WatchlistStatus
 from app.utils.logger import get_logger
+from uuid import UUID
 
 log = get_logger(__name__)
 
@@ -18,7 +19,7 @@ STATUS_PRIORITY = {
 }
 
 
-def check_watchlist(db: Session, customer_id: str) -> dict:
+def check_watchlist(db: Session, customer_id: UUID) -> dict:
     entries = db.query(WatchlistEntry).filter(
         WatchlistEntry.customer_id == customer_id
     ).order_by(WatchlistEntry.added_at.desc()).all()
