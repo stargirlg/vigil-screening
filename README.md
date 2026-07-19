@@ -1,7 +1,7 @@
 # VIGIL — AML Compliance Screening Platform
 
 ![CI](https://github.com/stargirlg/vigil-screening/actions/workflows/ci.yml/badge.svg)
-![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.139-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
@@ -235,7 +235,7 @@ Historical customer intelligence overrides risk scores.
 | Frontend | React 19, TypeScript, Vite |
 | Styling | Tailwind CSS v4 |
 | Charts | Recharts |
-| Backend | FastAPI 0.139, Python 3.11.9 |
+| Backend | FastAPI 0.139, Python 3.11+ |
 | Database | PostgreSQL 16, SQLAlchemy 2.0 |
 | Authentication | JWT, RBAC |
 | Background Jobs | Celery, Redis |
