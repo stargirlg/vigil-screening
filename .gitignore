@@ -4,6 +4,12 @@ __pycache__/
 *.pyc
 
 node_modules/
+
 # Logs
 *.log
 uvicorn_log.txt
+
+# Local development
+.vscode/
+test.db
+.pytest_cache/
