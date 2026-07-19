@@ -1,9 +1,11 @@
 # VIGIL — AML Compliance Screening Platform
 
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.116-green)
+![CI](https://github.com/stargirlg/vigil-screening/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.139-green)
+![License](https://img.shields.io/badge/license-MIT-blue)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-6-blue)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED)
 
@@ -233,7 +235,7 @@ Historical customer intelligence overrides risk scores.
 | Frontend | React 19, TypeScript, Vite |
 | Styling | Tailwind CSS v4 |
 | Charts | Recharts |
-| Backend | FastAPI 0.116, Python 3.12 |
+| Backend | FastAPI 0.139, Python 3.11+ |
 | Database | PostgreSQL 16, SQLAlchemy 2.0 |
 | Authentication | JWT, RBAC |
 | Background Jobs | Celery, Redis |
@@ -250,7 +252,7 @@ Historical customer intelligence overrides risk scores.
 
 ## Prerequisites
 
-- Python 3.12+
+- Python 3.11+
 - Node.js 24+
 - PostgreSQL 16
 - Redis
