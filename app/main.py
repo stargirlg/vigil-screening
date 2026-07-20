@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.db.init_db import init
 from app.config import settings
 from app.utils.logger import setup_logging
 from app.api.routes import users, customers, screening, alerts, audit, dashboard
@@ -39,6 +40,10 @@ app.include_router(cases.router)
 app.include_router(rules.router)
 app.include_router(reports.router)
 app.include_router(export.router)
+
+@app.on_event("startup")
+def startup():
+    init()
 
 @app.get("/", tags=["Health"])
 def root():
