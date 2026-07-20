@@ -57,9 +57,8 @@ class Settings(BaseSettings):
     UN_SANCTIONS_URL: str = "https://scsanctions.un.org/resources/xml/en/consolidated.xml"
 
     # Admin seed
-    ADMIN_EMAIL: str = ""
+    ADMIN_EMAIL: str = "admin@vigil.com"
     ADMIN_PASSWORD: str = ""
-
     @property
     def origins_list(self) -> list[str]:
         return [o.strip() for o in self.ALLOWED_ORIGINS.split(",")]
