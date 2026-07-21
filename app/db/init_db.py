@@ -14,35 +14,63 @@ def create_tables():
     log.info("Tables created.")
 
 
-def seed_admin():
+def seed_default_users():
     db = SessionLocal()
-    try:
-        existing = db.query(User).filter(
-            User.email == settings.ADMIN_EMAIL
-        ).first()
-        if existing:
-            log.info("Admin already exists — skipping.")
-            return
 
-        admin = User(
-            email=settings.ADMIN_EMAIL,
-            full_name="VIGIL Administrator",
-            hashed_password=hash_password(settings.ADMIN_PASSWORD),
-            role=UserRole.ADMIN,
-            is_active=True,
-        )
-        db.add(admin)
+    try:
+        users = [
+            (
+                settings.ADMIN_EMAIL,
+                settings.ADMIN_PASSWORD,
+                UserRole.ADMIN,
+                "VIGIL Administrator",
+            ),
+            (
+                "analyst@vigil.com",
+                "Analyst@123!",
+                UserRole.ANALYST,
+                "AML Analyst",
+            ),
+            (
+                "co@vigil.com",
+                "CO@123456!",
+                UserRole.CO,
+                "Compliance Officer",
+            ),
+        ]
+
+        for email, password, role, full_name in users:
+            existing = db.query(User).filter(User.email == email).first()
+            if existing:
+                log.info(f"{email} already exists — skipping.")
+                continue
+
+            db.add(
+                User(
+                    email=email,
+                    full_name=full_name,
+                    hashed_password=hash_password(password),
+                    role=role,
+                    is_active=True,
+                )
+            )
+            log.info(f"Created user: {email}")
+
         db.commit()
-        log.info(f"Admin seeded: {settings.ADMIN_EMAIL}")
+        log.info("Default users seeded successfully.")
+
+    except Exception:
+        db.rollback()
+        raise
+
     finally:
         db.close()
 
 
 def init():
     create_tables()
-    seed_admin()
+    seed_default_users()
     log.info("VIGIL DB initialization complete.")
-
 
 if __name__ == "__main__":
     init()
