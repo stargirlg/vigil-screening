@@ -1,4 +1,4 @@
-from app.db.database import engine, SessionLocal, Base
+from app.db.database import SessionLocal
 from app.models import User, Customer, Alert, AuditLog, SanctionEntry  # noqa
 from app.models.user import UserRole
 from app.auth.password import hash_password
@@ -6,12 +6,6 @@ from app.config import settings
 from app.utils.logger import get_logger
 
 log = get_logger(__name__)
-
-
-def create_tables():
-    log.info("Creating database tables...")
-    Base.metadata.create_all(bind=engine)
-    log.info("Tables created.")
 
 
 def seed_default_users():
@@ -68,9 +62,9 @@ def seed_default_users():
 
 
 def init():
-    create_tables()
     seed_default_users()
     log.info("VIGIL DB initialization complete.")
+
 
 if __name__ == "__main__":
     init()
