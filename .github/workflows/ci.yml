@@ -43,7 +43,10 @@ jobs:
       - name: Create .env
         run: cp .env.example .env
 
-      - name: Initialize database
+      - name: Run database migrations
+        run: alembic upgrade head
+
+      - name: Seed database
         run: python -m app.db.init_db
 
       - name: Compile check
