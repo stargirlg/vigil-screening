@@ -16,6 +16,9 @@ API.interceptors.request.use((config) => {
 export const login = (email: string, password: string) =>
   API.post('/auth/login', { email, password })
 
+export const getCurrentUser = () =>
+  API.get('/auth/me')
+
 // Dashboard
 export const getDashboardStats = () =>
   API.get('/dashboard/stats')
