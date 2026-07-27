@@ -81,7 +81,7 @@ def get_customer(
 @router.get("", response_model=list[CustomerOut])
 def list_customers(
     skip: int = Query(0, ge=0),
-    limit: int = Query(50, le=500),
+    limit: int = Query(1000, le=1000),
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
