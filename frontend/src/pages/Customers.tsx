@@ -62,7 +62,7 @@ export default function Customers() {
           ) : filtered.length === 0 ? (
             <div style={{ padding: '40px', textAlign: 'center', color: '#8B9388', fontSize: '13px' }}>No customers found</div>
           ) : (
-            filtered.map((c, ) => (
+            filtered.map((c) => (
               <div key={c.id}
                 onClick={() => setSelected(c)}
                 style={{
