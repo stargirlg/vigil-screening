@@ -13,3 +13,7 @@ uvicorn_log.txt
 .vscode/
 test.db
 .pytest_cache/
+
+# Generated files
+*.csv
+
