@@ -8,6 +8,9 @@ export default function Customers() {
   const [selected, setSelected]   = useState<any>(null)
 
   useEffect(() => {
+     console.log("CUSTOMERS PAGE VERSION 12345");
+
+
     API.get('/customers').then(r => {
       setCustomers(r.data)
       setLoading(false)
