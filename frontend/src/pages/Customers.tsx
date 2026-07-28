@@ -21,8 +21,15 @@ export default function Customers() {
   )
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: '#F4F1EA', height: 'calc(100vh - 48px)' }}>
-
+    <div
+  style={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    background: '#F4F1EA',
+    minHeight: 0,
+  }}
+>
       {/* Header */}
       <div style={{ padding: '16px 20px', borderBottom: '0.5px solid #DDD6C9', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div>
@@ -45,7 +52,13 @@ export default function Customers() {
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
 
         {/* Customer list */}
-        <div style={{ flex: 1, overflowY: 'auto' }}>
+        <div
+  style={{
+    flex: 1,
+    overflowY: 'auto',
+    minHeight: 0,
+  }}
+>
           {/* Column headers */}
           <div style={{
             display: 'grid', gridTemplateColumns: '1fr 100px 120px 120px 80px',
@@ -93,8 +106,16 @@ export default function Customers() {
         {selected ? (
           <div style={{ width: '280px', flexShrink: 0, borderLeft: '0.5px solid #DDD6C9', background: '#FAFAF8', padding: '16px', overflowY: 'auto' }}>
             <div style={{ fontSize: '14px', fontWeight: 500, color: '#2D2D2D', marginBottom: '4px' }}>{selected.full_name}</div>
-            <div style={{ fontSize: '10px', color: '#8B9388', fontFamily: "'DM Mono', monospace', marginBottom: '14px'" }}>{selected.id}</div>
-
+           <div
+  style={{
+    fontSize: '10px',
+    color: '#8B9388',
+    fontFamily: "'DM Mono', monospace",
+    marginBottom: '14px',
+  }}
+>
+  {selected.id}
+</div>
             <div style={{ fontSize: '10px', color: '#8B9388', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px', marginTop: '14px' }}>Identity</div>
             {[
               { label: 'PAN',      value: selected.pan },
