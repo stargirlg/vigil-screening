@@ -135,7 +135,8 @@ export default function Sidebar({ active, onChange, pendingAlerts = 0, role = 'A
 
   return (
     <div style={{
-      width: '200px', minHeight: 'calc(100vh - 48px)',
+      width: '200px',
+height: '100%',
       background: '#F6F3EE', borderRight: '0.5px solid #DDD6C9',
       padding: '12px 0', flexShrink: 0,
       display: 'flex', flexDirection: 'column',

@@ -19,8 +19,11 @@ export default function Analytics() {
 
   const riskData = [
     { name: 'Critical', value: stats.risk_distribution.critical, color: '#8B4040' },
+
     { name: 'High',     value: stats.risk_distribution.high,     color: '#7A5C2E' },
+
     { name: 'Medium',   value: stats.risk_distribution.medium,   color: '#73856E' },
+    
     { name: 'Low',      value: stats.risk_distribution.low,      color: '#8B9388' },
   ]
 

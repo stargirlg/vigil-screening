@@ -158,6 +158,7 @@ function App() {
     overflow: 'hidden',
     minWidth: 0,
     minHeight: 0,
+    
   }}
 >
           {renderPage()}

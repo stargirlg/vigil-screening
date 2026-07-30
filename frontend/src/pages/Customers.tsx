@@ -8,14 +8,16 @@ export default function Customers() {
   const [selected, setSelected]   = useState<any>(null)
 
   useEffect(() => {
-     console.log("CUSTOMERS PAGE VERSION 12345");
+  API.get('/customers')
+    .then(r => {
+      console.log("Customers received:", r.data.length)
+      console.log(r.data)
 
-
-    API.get('/customers').then(r => {
       setCustomers(r.data)
       setLoading(false)
-    }).catch(console.error)
-  }, [])
+    })
+    .catch(console.error)
+}, [])
 
   const filtered = customers.filter(c =>
     c.full_name?.toLowerCase().includes(search.toLowerCase()) ||
@@ -25,16 +27,16 @@ export default function Customers() {
 
   return (
     <div
-  style={{
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    background: '#F4F1EA',
-    minHeight: 0,
-  }}
->
+      style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        background: '#F4F1EA',
+        height: 'calc(100vh - 48px)',
+      }}
+    >
       {/* Header */}
-      <div style={{ padding: '16px 20px', borderBottom: '0.5px solid #DDD6C9', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ padding: '16px 20px', borderBottom: '0.5px solid #DDD6C9', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
         <div>
           <div style={{ fontSize: '14px', fontWeight: 500, color: '#2D2D2D' }}>Customers</div>
           <div style={{ fontSize: '11px', color: '#8B9388', marginTop: '1px' }}>{customers.length} total customers in system</div>
@@ -52,16 +54,23 @@ export default function Customers() {
         />
       </div>
 
-      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
-
-        {/* Customer list */}
+      {/* Split view: list + detail panel, side by side */}
+      <div
+        style={{
+          display: 'flex',
+          flex: 1,
+         overflow: 'visible',
+          minHeight: 0,
+        }}
+      >
+        {/* Customer list — the only scrollable column */}
         <div
-  style={{
-    flex: 1,
-    overflowY: 'auto',
-    minHeight: 0,
-  }}
->
+          style={{
+            flex: 1,
+            overflowY: 'auto',
+            minHeight: 0,
+          }}
+        >
           {/* Column headers */}
           <div style={{
             display: 'grid', gridTemplateColumns: '1fr 100px 120px 120px 80px',
@@ -105,20 +114,20 @@ export default function Customers() {
           )}
         </div>
 
-        {/* Detail panel */}
+        {/* Detail panel — sibling of the list, not nested inside it */}
         {selected ? (
           <div style={{ width: '280px', flexShrink: 0, borderLeft: '0.5px solid #DDD6C9', background: '#FAFAF8', padding: '16px', overflowY: 'auto' }}>
             <div style={{ fontSize: '14px', fontWeight: 500, color: '#2D2D2D', marginBottom: '4px' }}>{selected.full_name}</div>
-           <div
-  style={{
-    fontSize: '10px',
-    color: '#8B9388',
-    fontFamily: "'DM Mono', monospace",
-    marginBottom: '14px',
-  }}
->
-  {selected.id}
-</div>
+            <div
+              style={{
+                fontSize: '10px',
+                color: '#8B9388',
+                fontFamily: "'DM Mono', monospace",
+                marginBottom: '14px',
+              }}
+            >
+              {selected.id}
+            </div>
             <div style={{ fontSize: '10px', color: '#8B9388', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px', marginTop: '14px' }}>Identity</div>
             {[
               { label: 'PAN',      value: selected.pan },
