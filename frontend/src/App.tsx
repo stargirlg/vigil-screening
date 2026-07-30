@@ -128,16 +128,38 @@ function App() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#F4F1EA' }}>
+    <div
+  style={{
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    background: '#F4F1EA',
+    overflow: 'hidden',
+  }}
+>
       <Navbar />
-      <div style={{ display: 'flex', width: '100%', overflow: 'hidden' }}>
+      <div
+  style={{
+    display: 'flex',
+    flex: 1,
+    overflow: 'hidden',
+    minHeight: 0,
+  }}
+>
         <Sidebar
           active={page}
           onChange={setPage}
           pendingAlerts={pending}
           role={role}
         />
-        <div style={{ flex: 1, overflow: 'hidden', minWidth: 0 }}>
+        <div
+  style={{
+    flex: 1,
+    overflow: 'hidden',
+    minWidth: 0,
+    minHeight: 0,
+  }}
+>
           {renderPage()}
         </div>
       </div>
