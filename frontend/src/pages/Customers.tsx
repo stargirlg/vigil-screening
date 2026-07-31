@@ -69,6 +69,7 @@ export default function Customers() {
             flex: 1,
             overflowY: 'auto',
             minHeight: 0,
+            minWidth: 0 ,
           }}
         >
           {/* Column headers */}
