@@ -12,7 +12,7 @@ export default function Users() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    API.get('/users').then(r => {
+    API.get('/auth/users').then(r => {
       setUsers(r.data)
       setLoading(false)
     }).catch(e => {

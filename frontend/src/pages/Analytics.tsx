@@ -80,7 +80,17 @@ export default function Analytics() {
           <div style={{ fontSize: '12px', fontWeight: 500, color: '#495844', marginBottom: '14px' }}>Risk distribution</div>
           <ResponsiveContainer width="100%" height={180}>
             <PieChart>
-              <Pie data={riskData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={70} label={({ name, value }) => `${name}: ${value}`} labelLine={false} fontSize={10}>
+              <Pie 
+  data={riskData} 
+  dataKey="value" 
+  nameKey="name" 
+  cx="50%" 
+  cy="50%" 
+  outerRadius={70}
+  label={({ name, value }) => value > 0 ? `${name}: ${value}` : ''}
+  labelLine={true}
+  fontSize={10}
+>
                 {riskData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
               </Pie>
               <Tooltip contentStyle={{ background: 'white', border: '0.5px solid #DDD6C9', borderRadius: '6px', fontSize: '11px' }} />
