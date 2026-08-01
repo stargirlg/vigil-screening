@@ -9,10 +9,13 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED)
 
-> Enterprise-grade Anti-Money Laundering (AML) compliance platform for NBFCs, Banks, and BFSI organizations.
+> Enterprise-style Anti-Money Laundering (AML) compliance platform built with FastAPI and React.
 
-![VIGIL Dashboard](docs/dashboard.png)
+## Live Demo
 
+- **Frontend:** https://vigil-screening-git-main-gayatri9.vercel.app
+- **Backend API:** https://vigil-screening.onrender.com
+- **Swagger UI:** https://vigil-screening.onrender.com/docs
 ---
 
 # Overview
@@ -25,7 +28,8 @@ The platform reduces manual investigation effort by automatically closing low-ri
 
 Designed for compliance teams processing:
 
-- 700+ AML alerts per day
+- Designed to model compliance workflows commonly found in banks and NBFCs.
+- Designed for medium-volume AML screening workflows.
 - Small investigation teams
 - 24–48 hour SLA requirements
 
@@ -39,8 +43,7 @@ Designed for compliance teams processing:
 - Case management with evidence tracking
 
 **Philosophy**
-
-> FAST. EFFICIENT. EFFECTIVE.
+Accurate , Explainable , Auditable.
 
 ---
 
@@ -57,6 +60,27 @@ Designed for compliance teams processing:
 - **Immutable** Audit Trail
 - **Docker** Containerized Deployment
 - **PDF & CSV** Compliance Reports
+
+---
+
+
+# Screenshots
+
+## Login
+![Login](docs/images/login.jpeg)
+
+---
+## Admin Dashboard
+![Dashboard](docs/images/dashboard.jpeg)
+
+---
+## Alert Queue
+![Alert Queue](docs/images/alert-queue.jpeg)
+
+---
+
+## Customers
+![Customers](docs/images/customers.jpeg)
 
 ---
 
@@ -277,6 +301,10 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
+# Windows
+copy .env.example .env
+
+# Linux/macOS
 cp .env.example .env
 
 python -m app.db.init_db
@@ -375,7 +403,7 @@ Built with reference to:
 # Project Structure
 
 ```
-vigil/
+vigil-screening/
 ├── app/
 │   ├── api/
 │   ├── auth/
@@ -419,6 +447,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 # Author
 
 GAYATRI GOHATE
+
+GitHub: https://github.com/stargirlg
 
 VIGIL is an enterprise-style portfolio project demonstrating:
 
