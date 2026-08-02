@@ -1,274 +1,131 @@
 # VIGIL — AML Compliance Screening Platform
 
 ![CI](https://github.com/stargirlg/vigil-screening/actions/workflows/ci.yml/badge.svg)
-![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.11+-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.139-green)
-![License](https://img.shields.io/badge/license-MIT-blue)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-6-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-> Enterprise-style Anti-Money Laundering (AML) compliance platform built with FastAPI and React.
+> Enterprise-style AML (Anti-Money Laundering) compliance platform built with **FastAPI**, **React**, and **PostgreSQL**.
 
-## Live Demo
+---
+
+# Live Demo
 
 - **Frontend:** https://vigil-screening-git-main-gayatri9.vercel.app
 - **Backend API:** https://vigil-screening.onrender.com
 - **Swagger UI:** https://vigil-screening.onrender.com/docs
+
 ---
 
 # Overview
 
-VIGIL is a full-stack Anti-Money Laundering (AML) compliance platform that automates customer screening, risk assessment, investigation workflows, and compliance decision management.
+VIGIL is a full-stack AML compliance platform that simulates customer screening and investigation workflows commonly used by banks and financial institutions.
 
-The platform reduces manual investigation effort by automatically closing low-risk matches while prioritizing higher-risk alerts for analyst review through configurable screening rules.
+The application automates customer screening, calculates risk scores, generates alerts, manages investigations, and records every compliance decision through an audit trail.
 
-### Target Environment
+---
 
-Designed for compliance teams processing:
+# Key Features
 
-- Designed to model compliance workflows commonly found in banks and NBFCs.
-- Designed for medium-volume AML screening workflows.
-- Small investigation teams
-- 24–48 hour SLA requirements
-
-### Key Benefits
-
-- Automated AML customer screening
+- Customer onboarding and AML screening
 - Explainable risk scoring
-- Rule-driven compliance decisions
-- Complete audit trail
-- Four-eyes approval workflow
-- Case management with evidence tracking
-
-**Philosophy**
-Accurate , Explainable , Auditable.
-
----
-
-# Project Metrics
-
-- **8** AML Screening Parameters
-- **4** Risk Categories
-- **13** PostgreSQL Tables
-- **4** Role-Based Access Levels
-- **5-Stage** Investigation Workflow
-- **JWT** Authentication & RBAC
-- **Celery + Redis** Background Processing
-- **RapidFuzz** Intelligent Name Matching
-- **Immutable** Audit Trail
-- **Docker** Containerized Deployment
-- **PDF & CSV** Compliance Reports
+- RapidFuzz-based fuzzy name matching
+- Internal watchlist management
+- Alert investigation workflow
+- Case management
+- JWT authentication with role-based access control
+- Immutable audit logging
+- PDF and CSV reporting
+- Background processing with Celery and Redis
 
 ---
-
 
 # Screenshots
 
 ## Login
+
 ![Login](docs/images/login.jpeg)
 
 ---
-## Admin Dashboard
+
+## Dashboard
+
 ![Dashboard](docs/images/dashboard.jpeg)
 
 ---
+
 ## Alert Queue
+
 ![Alert Queue](docs/images/alert-queue.jpeg)
 
 ---
 
 ## Customers
+
 ![Customers](docs/images/customers.jpeg)
 
 ---
 
-# Features
+# Compliance Workflow
 
-## AML Screening Engine
-
-- 8-parameter customer screening
-- Risk scoring (0–100)
-- Four risk classifications
-- RapidFuzz fuzzy name matching
-- Explainable scoring engine
-- Rule version binding
-- Immutable screening snapshots
-
-### Screening Parameters
-
-- Name
-- Date of Birth
-- Government ID
-- Nationality
-- Occupation
-- Adverse Media
-- Politically Exposed Person (PEP)
-- Sanctions / Watchlists
-
----
-
-## Risk Classification
-
-| Risk | Score |
-|------|------:|
-| LOW | 0–29 |
-| MEDIUM | 30–49 |
-| HIGH | 50–74 |
-| CRITICAL | 75–100 |
-
----
-
-## Compliance Workflow
-
+```text
+Customer
+    │
+    ▼
+AML Screening
+    │
+    ▼
+Risk Score
+    │
+    ▼
+Alert Created
+    │
+    ▼
+Analyst Investigation
+    │
+    ▼
+Compliance Officer Review
+    │
+    ▼
+Case Closed
 ```
-Alert
-   ↓
-Investigation
-   ↓
-Analyst Recommendation
-   ↓
-Compliance Officer Decision
-   ↓
-Case Closure
-```
-
-### Workflow Features
-
-- Four-eyes approval
-- Decision locking
-- SAR flagging
-- SLA monitoring
-- Immutable audit logging
-
----
-
-## Internal Watchlist
-
-Historical customer intelligence overrides risk scores.
-
-| State | Action |
-|--------|---------|
-| FRAUD_CONFIRMED | Score ≥ 90 |
-| SAR_FILED | Score ≥ 75 |
-| UNDER_INVESTIGATION | Score ≥ 60 |
-| PREVIOUS_ESCALATION | +10 Points |
-| FALSE_POSITIVE | No Impact |
-
----
-
-## Rule Engine
-
-- Database-driven rules
-- Runtime rule updates
-- Maker-checker approval workflow
-- Rule versioning
-- Immutable rule snapshots
-- Historical feature weight tracking
-
----
-
-## Case Management
-
-- Investigation cases
-- Analyst notes
-- Evidence uploads
-- Decision history
-- Case lifecycle management
-
-### Case Status
-
-- OPEN
-- INVESTIGATING
-- PENDING_CO
-- CLOSED
-
----
-
-## Reporting
-
-- Audit Reports (PDF)
-- SAR Draft Reports
-- Case Closure Reports
-- Alert Export (CSV)
-
----
-
-## Role-Based Access Control
-
-| Role | Permissions |
-|------|-------------|
-| Admin | Full system administration |
-| Analyst | Alert review and investigations |
-| Compliance Officer | Final approval and SAR filing |
-| Checker | Secondary review |
 
 ---
 
 # System Architecture
 
+```text
+                React Frontend
+                       │
+                  REST API
+                       │
+                FastAPI Backend
+        ┌──────────────┴──────────────┐
+        │                             │
+ PostgreSQL Database          Celery + Redis
 ```
-                 +----------------------+
-                 |     React Frontend   |
-                 |  React + TypeScript  |
-                 +----------+-----------+
-                            |
-                         REST API
-                            |
-                 +----------v-----------+
-                 |    FastAPI Backend   |
-                 | Authentication       |
-                 | Screening Engine     |
-                 | Rule Engine          |
-                 | Case Management      |
-                 +----------+-----------+
-                            |
-          +-----------------+-----------------+
-          |                                   |
-  PostgreSQL 16                 Redis + Celery
- Application Database            Background Workers
-```
-
----
-
-# Database Schema
-
-| Table | Purpose |
-|---------|---------------------------|
-| users | User accounts |
-| customers | Customer profiles |
-| alerts | Screening alerts |
-| audit_logs | Immutable audit history |
-| sanction_entries | Sanction list data |
-| internal_watchlist | Internal intelligence |
-| screening_snapshots | Frozen screening records |
-| rules | Screening rules |
-| rule_versions | Rule history |
-| cases | Investigation cases |
-| case_notes | Investigation notes |
-| case_evidence | Supporting evidence |
-| case_decisions | Decision history |
 
 ---
 
 # Tech Stack
 
 | Layer | Technology |
-|--------|------------|
+|-------|------------|
 | Frontend | React 19, TypeScript, Vite |
-| Styling | Tailwind CSS v4 |
+| Styling | Tailwind CSS |
+| Backend | FastAPI |
+| Database | PostgreSQL, SQLAlchemy |
+| Authentication | JWT |
+| Validation | Pydantic |
+| Background Tasks | Celery, Redis |
+| Matching | RapidFuzz |
 | Charts | Recharts |
-| Backend | FastAPI 0.139, Python 3.11+ |
-| Database | PostgreSQL 16, SQLAlchemy 2.0 |
-| Authentication | JWT, RBAC |
-| Background Jobs | Celery, Redis |
-| Matching Engine | RapidFuzz |
-| Validation | Pydantic v2 |
-| PDF Generation | ReportLab |
-| Logging | Structlog |
-| HTTP Client | Axios |
-| Containerization | Docker, Docker Compose |
+| Reports | ReportLab |
+| Containerization | Docker |
 
 ---
 
@@ -277,14 +134,12 @@ Historical customer intelligence overrides risk scores.
 ## Prerequisites
 
 - Python 3.11+
-- Node.js 24+
-- PostgreSQL 16
+- Node.js
+- PostgreSQL
 - Redis
-- Docker (Optional)
+- Docker (optional)
 
----
-
-## Backend Setup
+## Backend
 
 ```bash
 git clone https://github.com/stargirlg/vigil-screening.git
@@ -296,7 +151,7 @@ python -m venv venv
 # Windows
 venv\Scripts\activate
 
-# Linux / macOS
+# Linux/macOS
 source venv/bin/activate
 
 pip install -r requirements.txt
@@ -308,15 +163,12 @@ copy .env.example .env
 cp .env.example .env
 
 python -m app.db.init_db
-
 python -m scripts.seed_rules
 
 uvicorn app.main:app --reload
 ```
 
----
-
-## Frontend Setup
+## Frontend
 
 ```bash
 cd frontend
@@ -325,8 +177,6 @@ npm install
 
 npm run dev
 ```
-
----
 
 ## Docker
 
@@ -345,93 +195,30 @@ docker compose up --build
 
 ---
 
-# Main API Endpoints
-
-| Method | Endpoint |
-|---------|--------------------------|
-| POST | /auth/login |
-| POST | /screen |
-| POST | /customers/upload-csv |
-| GET | /alerts |
-| GET | /dashboard/stats |
-| POST | /cases |
-| POST | /cases/{id}/recommend |
-| POST | /cases/{id}/decide |
-| GET | /rules/active |
-| GET | /reports/audit |
-| GET | /export/alerts |
-
----
-
-# Screening Parameters
-
-| Parameter | Weight |
-|------------|--------|
-| Name | 25 |
-| DOB | 15 |
-| ID Document | 20 |
-| Nationality | 10 |
-| Occupation | 5 |
-| Adverse Media | 10 |
-| PEP | 15 |
-| Internal Watchlist | Override |
-
----
-
-# SLA Rules
-
-| Risk | SLA |
-|------|------|
-| LOW | Auto Close |
-| MEDIUM | 48 Hours |
-| HIGH | 24 Hours |
-| CRITICAL | 4 Hours |
-
----
-
-# Compliance References
-
-Built with reference to:
-
-- RBI AML/KYC Guidelines
-- FATF Recommendations
-- FIU-IND Reporting Requirements
-- Prevention of Money Laundering Act (PMLA)
-
----
-
 # Project Structure
 
-```
+```text
 vigil-screening/
 ├── app/
-│   ├── api/
-│   ├── auth/
-│   ├── core/
-│   ├── db/
-│   ├── models/
-│   ├── schemas/
-│   ├── tasks/
-│   └── utils/
 ├── frontend/
 ├── scripts/
+├── tests/
 ├── docs/
 ├── data/
 ├── Dockerfile
 ├── docker-compose.yml
-├── requirements.txt
 └── README.md
 ```
 
 ---
 
-# Future Roadmap
+# Roadmap
 
 - [x] GitHub Actions CI
 - [ ] Kubernetes Deployment
 - [ ] Prometheus & Grafana Monitoring
 - [ ] Email Notifications
-- [ ] Real OFAC / UN Sanctions Integration
+- [ ] OFAC / UN Sanctions Integration
 - [ ] Customer Risk Rating
 - [ ] Batch Screening Dashboard
 - [ ] Mobile Responsive Interface
@@ -440,21 +227,24 @@ vigil-screening/
 
 # License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ---
 
 # Author
 
-GAYATRI GOHATE
+**Gayatri Gohate**
 
 GitHub: https://github.com/stargirlg
 
-VIGIL is an enterprise-style portfolio project demonstrating:
+---
 
-- AML compliance workflow automation
-- Enterprise system architecture
-- Explainable risk scoring
-- Audit-ready database design
-- Secure role-based access control
-- Full-stack development with FastAPI and React
+VIGIL was built as an enterprise-style portfolio project to demonstrate:
+
+- FastAPI backend development
+- React frontend development
+- Secure authentication and RBAC
+- AML workflow automation
+- PostgreSQL database design
+- REST API development
+- Full-stack application architecture
