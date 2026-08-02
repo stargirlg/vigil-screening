@@ -2,8 +2,7 @@
 
 **Version:** 1.0.0  
 **Date:** August 2026  
-**Status:** Production
-
+**Status:** Status: Portfolio Project
 ---
 
 ## 1. Problem Statement
@@ -29,8 +28,7 @@ VIGIL is a risk-based AML compliance screening and decision management platform 
 - Enforces four-eyes approval workflow
 - Generates immutable audit trail
 
-**Result:** 70-80% reduction in analyst workload with full regulatory defensibility.
-
+**Result:** Expected Result: Reduced analyst workload through automated risk-based screening and prioritization.
 ---
 
 ## 3. Target Users
@@ -92,7 +90,6 @@ VIGIL is a risk-based AML compliance screening and decision management platform 
 | API Response Time | < 2 seconds |
 | Screening Time | < 5 seconds per customer |
 | Availability | 99.9% uptime |
-| Data Retention | 7 years (RBI requirement) |
 | Audit Trail | Immutable, tamper-proof |
 | Authentication | JWT with role-based access |
 
