@@ -27,6 +27,17 @@ VIGIL is a full-stack AML compliance platform that simulates customer screening 
 
 The application automates customer screening, calculates risk scores, generates alerts, manages investigations, and records every compliance decision through an audit trail.
 
+
+# Highlights
+
+- Full-stack React + FastAPI application
+- JWT authentication with role-based access control
+- Explainable AML risk scoring
+- PostgreSQL + SQLAlchemy
+- Background jobs with Celery & Redis
+- Dockerized development environment
+
+
 ---
 
 # Key Features
